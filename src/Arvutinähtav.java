@@ -1,5 +1,11 @@
 
 public class Arvutinähtav {
+	//kuna mänguväljaku suurus nagunii ei muutu, kasutame massiive. 
+	//mänguväljak tuleb kokku 10-st massiivist, kus on igaühes 10 char elementi 'O'
+	//'O' tähendab meie programmis seda, et tegemist on tühja kohada, kuhu saab laeva paigutada
+	//'X' tähendab, et seal selles kohas asub laev 
+	//ja 'Y', et see koht on küll tühi, aga kõrval asub laev (sinna ei saa laeva paigutada)
+	
 private char[] a = {'O','O','O','O','O','O','O','O','O','O'};
 private char[] b = {'O','O','O','O','O','O','O','O','O','O'};
 private char[] c = {'O','O','O','O','O','O','O','O','O','O'};
@@ -11,11 +17,12 @@ private char[] h = {'O','O','O','O','O','O','O','O','O','O'};
 private char[] i = {'O','O','O','O','O','O','O','O','O','O'};
 private char[] j = {'O','O','O','O','O','O','O','O','O','O'};
 
+//laud on muutuja, mis sisuliselt ühendab read kokku
 private char [][] laud = {a,b,c,d,e,f,g,h,i,j};
 
 //Katsetan, kas git toimib
 
-
+// meile enda jaoks tehtud toString, et näha, mis arvuti mängulaua peal toimub, kui programmile midagi lisame
 @Override
 public String toString() {
 	for (char[] rida : laud){
@@ -26,18 +33,19 @@ public String toString() {
 	};
 	return "Jee!";
 }
+//get meetod, laua jaoks
 public char[][] getLaud() {
 	return laud;
 }
-public void setLaud(char[][] laud) {
-	this.laud = laud;
-}
+//meetod, millega tuleb suvaline täisarv 0-9
 public static int looJuhuArv() {
 	return (int)Math.floor(Math.random()*10);
 }
+// meetod, mis annab suvaliselt kas 0 või 1, kasutame selleks, et valida laeva paigutamise suund
 public int valiSuund(){
 	return (int)Math.floor(Math.random()*2);
 }
+//Hakkame laevu paigutama, alustuseks meetod 4-se laeva jaoks
 char[][] paigutaLaevNeli(char [][] laud){
 		while(true){
 		int rida= looJuhuArv(); //0-9
