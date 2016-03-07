@@ -13,7 +13,7 @@ private char[] j = {'O','O','O','O','O','O','O','O','O','O'};
 
 private char [][] laud = {a,b,c,d,e,f,g,h,i,j};
 
-
+//Katsetan, kas git toimib
 
 
 @Override
